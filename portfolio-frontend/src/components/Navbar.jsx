@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="grid grid-cols-3 items-center p-4">
     {/* Left */}
     <div className="justify-self-start text-black font-bold text-lg">
-        josh lin
+        josh lin // 林页风
     </div>
 
     {/* Center */}

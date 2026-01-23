@@ -1,27 +1,58 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-const GalleryCard = ({ images, interval = 4000 }) => {
+const GalleryCard = ({ images }) => {
   const [index, setIndex] = useState(0)
 
-  useEffect(() => {
-    if (!images || images.length === 0) return
+  if (!images || images.length === 0) return null
 
-    const timer = setInterval(() => {
-      setIndex(prev => (prev + 1) % images.length)
-    }, interval)
+  const nextImage = () => {
+    setIndex((prev) => (prev + 1) % images.length)
+  }
 
-    return () => clearInterval(timer)
-  }, [images, interval])
+  const prevImage = () => {
+    setIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    )
+  }
 
   return (
     <div className="max-w-xl mx-auto mt-8 border rounded-lg overflow-hidden bg-white shadow-sm">
       
-      <div className="aspect-video bg-gray-100">
+      {/* IMAGE CONTAINER */}
+      <div className="relative aspect-video bg-gray-100 group">
         <img
           src={images[index]}
           alt="gallery"
-          className="w-full h-full object-cover transition-opacity duration-500"
+          className="w-full h-full object-cover"
         />
+
+        {/* LEFT BUTTON */}
+        <button
+          onClick={prevImage}
+          className="
+            absolute left-3 top-1/2 -translate-y-1/2
+            bg-black/50 hover:bg-black/70 text-white
+            w-10 h-10 rounded-full flex items-center justify-center
+            opacity-0 group-hover:opacity-100
+            transition-opacity duration-300
+          "
+        >
+          ‹
+        </button>
+
+        {/* RIGHT BUTTON */}
+        <button
+          onClick={nextImage}
+          className="
+            absolute right-3 top-1/2 -translate-y-1/2
+            bg-black/50 hover:bg-black/70 text-white
+            w-10 h-10 rounded-full flex items-center justify-center
+            opacity-0 group-hover:opacity-100
+            transition-opacity duration-300
+          "
+        >
+          ›
+        </button>
       </div>
 
       <div className="p-3 text-sm text-gray-500 text-center">
