@@ -17,6 +17,16 @@ const AboutMe = () => {
                         software dev, and seeing as im in my final year this site is the beginning of me "locking in".
                         outside of my studies i love travelling, running, working out, electronic music and going to festivals.
                     </p>
+                    <p>
+                        here you can find&nbsp;
+                        <a 
+                            href="/documents/ylin - cv.pdf" 
+                            target="_blank" 
+                            class="underline text-black-600 hover:text-gray-800"
+                        >
+                            my resume.
+                        </a>
+                    </p>
                     </div>
 
                     {/* Image */}
