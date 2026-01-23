@@ -1,28 +1,32 @@
 import React from 'react'
 import { useState } from 'react'
 import Navbar from '../components/Navbar.jsx'
-import FunFactCard from '../components/FunFactCard.jsx'
 import AboutMe from '../components/AboutMe.jsx'
+import GalleryCard from '../components/GalleryCard.jsx'
 
 function Home() {
 
 
-    const funFacts = [
-        "i've met an artist with a 100 million stream song.",
-        "the philadelphia 76ers have lost me probably over a hundred dollars this season",
-        "i've won 2 national championships in league of legends.",
+    const galleryImages = [
+        '/images/000001.JPG',
+        '/images/000007.JPG',
+        '/images/000008.JPG',
+        '/images/000010.JPG',
+        '/images/000012.JPG',
+        '/images/000014 2.JPG',
+        '/images/000019.JPG',
+        '/images/000021.JPG',
+        '/images/000023.JPG',
+        '/images/000024.JPG',
+        '/images/000025.JPG',
+        '/images/000029.JPG',
+        '/images/melb1.JPG',
+        '/images/melb2.JPG',
+        '/images/melb3.JPG',
+        '/images/melb4.JPG',
+        '/images/melb5.JPG'
     ]
 
-    const [currentFact, setCurrentFact] = useState(funFacts[0]);
-
-    const getRandomFact = () => {
-        let next
-        do {
-            next = funFacts[Math.floor(Math.random() * funFacts.length)]
-        } while (next === currentFact)
-
-        setCurrentFact(next)
-    }
 
 
     const scrollToAbout = () => { 
@@ -55,14 +59,11 @@ function Home() {
         <section id="about">
             <AboutMe />
         </section>
-        <section id="fun-facts">
+        <section id="gallery">
             <div className="text-center">
-                <h2 className="text-4xl font-bold mt-[7rem]">fun facts.</h2>
+                <h2 className="text-4xl font-bold mt-[7rem]">snippets from my life.</h2>
 
-                <FunFactCard
-                fact={currentFact}
-                onNext={getRandomFact}
-                />
+                <GalleryCard images={galleryImages} interval={4000} />
             </div>
             </section>
     </div>
