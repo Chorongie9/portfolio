@@ -15,6 +15,11 @@ const projects = [
     title: 'podcast library',
     description: 'a podcast library app that allows users to search, review and comment on podcasts. built with html/css, flask, jinja and python as apart of a university paper alongside 2 others.',
     image: '/images/podcast_lib.png',
+  },
+  {
+    title: 'nba player / team app',
+    description: 'an nba player app that allowed users to view player / team stats based on seasons, as well as compare players. built using react frontend, with python backend relying on fastapi and nba_api to scrape data.',
+    image: '/images/nba_screenshot2.png',
   }
 ]
 
