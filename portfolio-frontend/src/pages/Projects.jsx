@@ -13,7 +13,7 @@ const projects = [
   },
   {
     title: 'podcast library',
-    description: 'a podcast library app that allows users to search, review and comment on podcasts. built with html/css, flask, jinja and python as apart of a university paper alongside 2 others.',
+    description: 'a podcast library app that allows users to search, review and comment on podcasts. built with <strong>html/css, flask, jinja and python</strong> as apart of a university paper alongside 2 others.',
     image: '/images/podcast_lib.png',
   },
   {

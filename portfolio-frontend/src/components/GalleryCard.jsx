@@ -19,7 +19,7 @@ const GalleryCard = ({ images }) => {
     <div className="max-w-xl mx-auto mt-8 border rounded-lg overflow-hidden bg-white shadow-sm">
       
       {/* IMAGE CONTAINER */}
-      <div className="relative aspect-video bg-gray-100 group">
+      <div className="relative h-100 w-100 bg-gray-100 group">
         <img
           src={images[index]}
           alt="gallery"
