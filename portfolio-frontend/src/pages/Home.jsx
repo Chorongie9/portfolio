@@ -5,6 +5,7 @@ import AboutMe from '../components/AboutMe.jsx'
 import Experience from '../components/Experience.jsx'
 import GalleryCard from '../components/GalleryCard.jsx'
 import { motion } from 'framer-motion'
+import About from '../components/About.jsx'
 function Home() {
 
 
@@ -46,6 +47,9 @@ function Home() {
                 welcome to my portfolio.
                 </motion.h2>
             </motion.div>
+        </section>
+        <section id="about" className="mt-40">
+            <About/>
         </section>
     </div>
   )

@@ -14,7 +14,7 @@ const Navbar = () => {
     {/* Center */}
     <ul className="flex justify-center items-center space-x-4 text-black font-medium">
         <li>
-          <Link to="/about" className="hover:text-gray-400">about</Link>
+          <Link to="/" className="hover:text-gray-400">home</Link>
         </li>
         <span className="text-gray-500">|</span>
         <li>

@@ -19,7 +19,7 @@ const ExperienceItem = ({ title, bullets }) => {
         <ul className="mt-4 space-y-2 text-lg pl-4">
           {bullets.map((item, index) => (
             <li key={index} className="flex gap-2">
-              <span>{'>'}</span>
+              <span>{'•'}</span>
               <span>{item}</span>
             </li>
           ))}

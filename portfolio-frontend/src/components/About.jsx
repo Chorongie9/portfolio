@@ -67,9 +67,9 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h1 className="text-6xl font-bold mt-[7rem]"> about me.</h1>
+        <h2 className="text-4xl font-bold mt-[30rem]"> about me.</h2>
       </motion.div>
-      
+    
       <motion.div 
         className="max-w-4xl mx-auto mt-10 px-4"
         ref={contentRef}
@@ -80,7 +80,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
 
           {/* Text */}
-          <motion.div className="flex-1 text-xl leading-relaxed" variants={itemVariants}>
+          <motion.div className="flex-1 text-lg leading-relaxed" variants={itemVariants}>
             <p>
               hi, my name is josh and i'm a final year student studying a double major
               in computer science & statistics at the university of auckland. i'm an aspiring

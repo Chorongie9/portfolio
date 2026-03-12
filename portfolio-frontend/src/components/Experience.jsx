@@ -3,9 +3,17 @@ import ExperienceItem from './ExperienceItem'
 const Experience = () => {
   return (
     <div className="text-center mt-10 mb-20">
-      <h2 className="text-4xl font-bold mb-10 ">experience.</h2>
+      <h2 className="text-4xl font-bold mb-10 ">experience & education.</h2>
 
       <div className="max-w-3xl mx-auto px-4 space-y-8">
+        <ExperienceItem
+          title="bsc compsci & stats @ university of auckland: mar. 2023 – present"
+          bullets={[
+            'graduating in the middle of 2026 with an interest in post graduate studies.',
+            '7.5 / 9 gpa, ',
+            'relevant courses: data structures & algorithms, applied algorithmics, object orientated programming, operating systems, discrete structures in mathematics, machine learning, modelling & analytics in operations research, statistical computing'
+          ]}
+        />
         <ExperienceItem
           title="events co-lead @ uoacs: nov. 2024 – present"
           bullets={[
