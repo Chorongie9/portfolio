@@ -26,6 +26,10 @@ const Navbar = () => {
           <li>
           <Link to="/contact" className="hover:text-gray-400">contact</Link>
           </li>
+          <span className="text-gray-500">|</span>
+          <li>
+          <Link to="/misc" className="hover:text-gray-400">misc</Link>
+          </li>
       </ul>
 
       {/* Right (empty spacer) */}

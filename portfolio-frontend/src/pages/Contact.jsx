@@ -9,7 +9,7 @@ const Contact = () => {
         </h1>
 
         <p className="text-center text-gray-500 mb-6">
-          find me using any of the links below.
+          reach out using any of the links below! i am always keen for new opportunities, collaborations or even just a chat. 
         </p>
 
         <ul className="space-y-4 text-center">
