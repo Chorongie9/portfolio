@@ -1,0 +1,14 @@
+ .page {
+   scroll-behavior: smooth; /* smooth jumps to anchors */
+ }
+
+ .section {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+  padding: 6rem 1.5rem; /* default vertical spacing between sections */
+}
+
+.hero-section {
+  padding: 0 1.5rem; /* remove extra vertical padding for perfect centering */
+ }

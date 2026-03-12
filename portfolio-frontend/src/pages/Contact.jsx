@@ -9,12 +9,12 @@ const Contact = () => {
         </h1>
 
         <p className="text-center text-gray-500 mb-6">
-          reach out to me using any of the links below
+          find me using any of the links below.
         </p>
 
         <ul className="space-y-4 text-center">
           <li className="text-gray-700">
-            <span className="font-medium">Email:</span>{' '}
+            <span className="font-medium">email:</span>{' '}
             <a
               href="mailto:lin.josh2004@gmail.com"
               className="text-gray-600 hover:underline"

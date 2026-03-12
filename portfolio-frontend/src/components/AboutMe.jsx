@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <div>
       <div className="text-center">
-                <h2 className="text-4xl font-bold mt-[7rem]"> about me.</h2>
+                <h2 className="text-4xl font-bold mt-[12rem]"> about me.</h2>
             </div>
             <div className="max-w-4xl mx-auto mt-10 px-4">
                 <div className="flex flex-col md:flex-row items-center gap-8">

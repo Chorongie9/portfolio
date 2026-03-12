@@ -1,4 +1,4 @@
-const ProjectCard = ({ title, description, image }) => {
+const ProjectCard = ({ title, description, image, tags = [] }) => {
   return (
     <div className="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
       
@@ -18,6 +18,18 @@ const ProjectCard = ({ title, description, image }) => {
           {description}
         </p>
 
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="px-2 py-1 text-xs rounded-full bg-gray-100 text-gray-700"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )
