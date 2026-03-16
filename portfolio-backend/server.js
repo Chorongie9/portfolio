@@ -1,30 +1,83 @@
 import express from "express";
 import fetch from "node-fetch";
+import dotenv from "dotenv";
+import cors from "cors";
+
+dotenv.config();
 
 const app = express();
 
-const ACCESS_TOKEN = "YOUR_STRAVA_ACCESS_TOKEN";
+app.use(cors({
+  origin: "http://localhost:5173"  // ← add this, your Vite dev server
+}));
+
+const {
+  STRAVA_CLIENT_ID,
+  STRAVA_CLIENT_SECRET,
+  STRAVA_REFRESH_TOKEN,
+  PORT = 3001,
+} = process.env;
+
+async function getAccessToken() {
+  const res = await fetch("https://www.strava.com/oauth/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      client_id: STRAVA_CLIENT_ID,
+      client_secret: STRAVA_CLIENT_SECRET,
+      grant_type: "refresh_token",
+      refresh_token: STRAVA_REFRESH_TOKEN,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Failed to refresh token: ${res.status} ${text}`);
+  }
+
+  const data = await res.json();
+  return data.access_token; // short‑lived token
+}
 
 app.get("/api/runs", async (req, res) => {
   try {
+    const accessToken = await getAccessToken();
+
     const response = await fetch(
       "https://www.strava.com/api/v3/athlete/activities?per_page=10",
       {
         headers: {
-          Authorization: `Bearer ${ACCESS_TOKEN}`
-        }
+          Authorization: `Bearer ${accessToken}`,
+        },
       }
     );
 
-    const activities = await response.json();
+    if (!response.ok) {
+      const text = await response.text();
+      return res
+        .status(response.status)
+        .json({ error: "Failed to fetch activities", detail: text });
+    }
 
-    const runs = activities.filter(a => a.type === "Run");
+    const activities = await response.json();
+    const runs = activities
+      .filter((a) => a.type === "Run")
+      .map((run) => ({
+        id: run.id,
+        name: run.name,
+        distance: run.distance,
+        moving_time: run.moving_time,
+        start_date: run.start_date,
+        average_speed: run.average_speed,
+        total_elevation_gain: run.total_elevation_gain,
+        summary_polyline: run.map?.summary_polyline ?? null,
+      }));
 
     res.json(runs);
-
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Failed to fetch activities" });
   }
 });
 
-app.listen(3001, () => console.log("Server running on port 3001"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

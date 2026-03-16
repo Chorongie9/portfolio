@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Ensure Leaflet maps don't overlay sticky navbar */
+.leaflet-container {
+  z-index: 0;
+}
+
