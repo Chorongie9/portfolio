@@ -4,7 +4,7 @@
     ],
     "functions": {
       "backend/api/index.js": {
-        "runtime": "nodejs20.x"
+        "runtime": "nodejs@20.x"
       }
     }
   }
