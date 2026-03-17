@@ -7,10 +7,13 @@ const Misc = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+  const API_URL = import.meta.env.VITE_API_URL || "";
+
+
   useEffect(() => {
     const fetchRuns = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/runs')
+        const res = await fetch(`${API_URL}/api/runs`)
         if (!res.ok) {
           throw new Error(`Request failed: ${res.status}`)
         }

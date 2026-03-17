@@ -8,14 +8,13 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173"  // ← add this, your Vite dev server
+  origin: process.env.FRONTEND_URL || "http://localhost:5173"
 }));
 
 const {
   STRAVA_CLIENT_ID,
   STRAVA_CLIENT_SECRET,
   STRAVA_REFRESH_TOKEN,
-  PORT = 3001,
 } = process.env;
 
 async function getAccessToken() {
@@ -36,27 +35,20 @@ async function getAccessToken() {
   }
 
   const data = await res.json();
-  return data.access_token; // short‑lived token
+  return data.access_token;
 }
 
 app.get("/api/runs", async (req, res) => {
   try {
     const accessToken = await getAccessToken();
-
     const response = await fetch(
       "https://www.strava.com/api/v3/athlete/activities?per_page=10",
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
+      { headers: { Authorization: `Bearer ${accessToken}` } }
     );
 
     if (!response.ok) {
       const text = await response.text();
-      return res
-        .status(response.status)
-        .json({ error: "Failed to fetch activities", detail: text });
+      return res.status(response.status).json({ error: "Failed to fetch activities", detail: text });
     }
 
     const activities = await response.json();
@@ -80,4 +72,5 @@ app.get("/api/runs", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// No app.listen() — Vercel handles this
+export default app;
