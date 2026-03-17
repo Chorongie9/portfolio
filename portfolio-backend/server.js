@@ -38,7 +38,7 @@ async function getAccessToken() {
   return data.access_token;
 }
 
-app.get("/api/runs", async (req, res) => {
+app.get("/runs", async (req, res) => {
   try {
     const accessToken = await getAccessToken();
     const response = await fetch(
