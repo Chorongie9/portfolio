@@ -3,7 +3,7 @@
       { "source": "/api/(.*)", "destination": "/api" }
     ],
     "functions": {
-      "backend/api/index.js": {
+      "portfolio-backend/api/index.js": {
         "runtime": "nodejs@20.x"
       }
     }
