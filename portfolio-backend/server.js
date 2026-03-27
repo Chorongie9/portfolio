@@ -72,5 +72,9 @@ app.get("/runs", async (req, res) => {
   }
 });
 
-// No app.listen() — Vercel handles this
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(3001, () => {
+    console.log('Server running on http://localhost:3001')
+  })
+}
 export default app;
