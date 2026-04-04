@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "portfolio-frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/runs.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/runs", "dest": "/api/runs.js" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/portfolio-frontend/$1" }
+  ]
+}
