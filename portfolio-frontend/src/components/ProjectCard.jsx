@@ -1,4 +1,4 @@
-const ProjectCard = ({ title, description, image, tags = [] }) => {
+const ProjectCard = ({ title, description, image, tags = [], link }) => {
   return (
     <div className="border rounded-lg overflow-hidden bg-white hover:shadow-md transition-shadow">
       
@@ -29,6 +29,17 @@ const ProjectCard = ({ title, description, image, tags = [] }) => {
               </span>
             ))}
           </div>
+        )}
+
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-4 text-sm font-medium text-blue-600 hover:underline"
+          >
+            visit site →
+          </a>
         )}
       </div>
     </div>
