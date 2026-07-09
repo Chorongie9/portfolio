@@ -20,7 +20,7 @@ const AboutMe = () => {
                     <p>
                         here you can find&nbsp;
                         <a 
-                            href="/documents/ylin - cv.pdf" 
+                            href="/documents/jlin - cv.pdf" 
                             target="_blank" 
                             class="underline text-black-600 hover:text-gray-800"
                         >
