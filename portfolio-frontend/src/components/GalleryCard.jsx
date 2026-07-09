@@ -20,14 +20,6 @@ const GalleryCard = ({ images }) => {
 
   return (
     <div className="text-center">
-      <motion.h2
-        className="text-4xl font-bold mt-[7rem]"
-        initial={{ opacity: 0, y: -10 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 0.2, duration: 0.6 }}
-      >
-        snippets from my life.
-      </motion.h2>
 
       <motion.div
         ref={ref}
