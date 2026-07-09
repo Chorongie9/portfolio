@@ -2,10 +2,11 @@ import ProjectCard from '../components/ProjectCard'
 
 const projects = [
   {
-    title: 'tansa website',
-    description: 'website made as apart of wdcc projects team for the tansa club, designed with react, nextjs and tailwindcss.',
-    image: '/images/tansa.png',
-    tags: ['react', 'next.js', 'tailwind css'],
+    title: 'Human Nutrition Unit Website',
+    description: 'website designed for the human nutrition unit for university capstone project. designed with astro, typescript, sanitycms and tailwind. render was used to deploy the project for our client.',
+    image: '/images/hnu.png',
+    tags: ['astro', 'typescript','sanitycms', 'tailwind css'],
+    link: 'https://hnu.onrender.com'
   },
   {
     title: 'personal portfolio',
